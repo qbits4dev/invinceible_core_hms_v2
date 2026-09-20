@@ -4,6 +4,10 @@ WORKDIR /app
 RUN apk add --no-cache openssl
 
 COPY backend/package.json backend/package-lock.json ./
+COPY backend/prisma ./prisma
+COPY backend/prisma-postgresql ./prisma-postgresql
+COPY backend/prisma.config.ts ./prisma.config.ts
+COPY backend/scripts ./scripts
 RUN npm ci
 
 COPY backend/. .
